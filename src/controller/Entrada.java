@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import model.Exportacao;
 
 public class Entrada {      
 
@@ -42,7 +43,8 @@ public class Entrada {
     }
 
     public void exportar_entrada(){
-        return;
+        Exportacao ex = new Exportacao();
+        ex.exporta_objeto(this);
     }
 
     
