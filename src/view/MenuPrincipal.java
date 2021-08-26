@@ -1,20 +1,28 @@
+package view;
+
 import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import controller.Entrada;
+import controller.Utilitaria;
+
 
 public class MenuPrincipal {
 
     private int option;
     private ArrayList<Entrada> entradas;
+    
 
-    MenuPrincipal(){
+    public MenuPrincipal(){
         this.option = 0;
-        entradas = new ArrayList<>();
+        entradas = new ArrayList<Entrada>();
     }
     
     public void tela_inicial(){
-        int k = 1;
+        boolean k = true;
         while(k){
             PrintStream out = System.out;
             out.println("Seja bem vindo ao Journaling." + "\n");
@@ -23,7 +31,7 @@ public class MenuPrincipal {
             out.println("2. Filtrar entradas");
             out.println("3. Exportar entradas");
             out.println("4. Sair" + "\n");
-            execute_option();
+            k = execute_option();
         }
     }
 
@@ -31,15 +39,15 @@ public class MenuPrincipal {
         Scanner scan = new Scanner(System.in);
         int i = scan.nextInt();
         this.option = i;
-        scan.close();
     }
 
-    public int execute_option(){
+    public boolean execute_option(){
         read_option();
+        Scanner input = new Scanner(System.in);
 
         switch (this.option){
             case 1:
-                nova_entrada();
+                nova_entrada(input);
                 break;
             case 2:
                 filtrar_entradas();
@@ -48,35 +56,39 @@ public class MenuPrincipal {
                 exportar_entradas();
                 break;
             case 4:
-                return 0;
+                input.close();
+                return false;
             default:
-                return 1;
+                return true;
         }
+        return true;
     }
 
-    public void nova_entrada(){
+    public void nova_entrada(Scanner input){
+        
+        // A data será escrita na entrada como "dd/mm/aa"
+        
+        String data;
+        data = input.nextLine();
+        Entrada new_entrada = new Entrada(data);
 
-        Scanner le = new Scanner(System.in);
+        String txt;
+        txt = input.nextLine();
+        new_entrada.add_word(txt);
+        new_entrada.adiciona_categoria(txt);
 
-        // A data será escrita na entrada como "dd/mm/aa: "
-        // por isso o ":" deve ser retirado
-
-        StringTokenizer date = new StringTokenizer(le.next());
-        date = date.nextToken(":");
-        Entrada new_entrada = new Entrada(String(date));
-        String palavra = "";
-        while(palavra != "\n"){
-            palavra = " ";         
-            palavra = le.nextLine();
-            new_entrada.add_word(palavra);
-            new_entrada.adiciona_categoria(palavra);
-        } 
+        System.out.println("debug");
         this.entradas.add(new_entrada);
-        new_entrada.insere_entrada_no_arquivo();
-        le.close();
     }
 
     public void exportar_entradas(){
+        for (Entrada e : this.entradas){
+            e.exportar_entrada();
+        }
+    }
+
+
+    public void filtrar_entradas(){
         return;
     }
 

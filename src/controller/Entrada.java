@@ -1,18 +1,21 @@
+package controller; 
+
 import java.util.Vector;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
-
 
 public class Entrada {      
 
-    private ArrayList text; // texto fornecido para entrada do diário
+    private ArrayList<String> text; // texto fornecido para entrada do diário
     private Date date; // data de registro da entrada no diário
-    private ArrayList<String> categorias = new ArrayList<String>(); // lista de categorias associadas a entrada do diário
+    private ArrayList<String> categorias; // lista de categorias associadas a entrada do diário
 
-    Entrada(String _date){
+    public Entrada(String _date){
         this.text = new ArrayList<String>();
-        this.date = new Date(Utilitaria.CONVERT_STRING_TO_DATE(_date));
+        categorias = new ArrayList<String>();
+        this.date = Utilitaria.CONVERT_STRING_TO_DATE(_date);
         
     }
 
@@ -27,12 +30,19 @@ public class Entrada {
         // padrão, cuja lista foi determinada na classe
         // Utilitaria 
 
-        for (String s : Utilitaria.CATEGORIAS_PADRAO){
+        Utilitaria u = new Utilitaria();
+        ArrayList <String> array = u.GET_CATEGORIAS_PADRAO();
+
+        for (String s : array){
             if (word.equalsIgnoreCase(s)){
                 this.categorias.add(word);
             }
         }
 
+    }
+
+    public void exportar_entrada(){
+        return;
     }
 
     
