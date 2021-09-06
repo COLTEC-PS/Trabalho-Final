@@ -24,8 +24,8 @@ public class Modelo {
         return this.texto;
     }
 
-    public void setPalavraTexto(String palavra){
-        this.texto.add(palavra);
+    public void setPalavraTexto(String word){
+        this.texto.add(word);
     }
 
     public Date getDate(){

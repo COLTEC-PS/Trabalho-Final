@@ -17,6 +17,8 @@ import model.ProtocolFactory;
 
 public class Persistencia {
 
+    // Padrão Singleton
+
     private static Persistencia instance;
     
     private Persistencia(){}

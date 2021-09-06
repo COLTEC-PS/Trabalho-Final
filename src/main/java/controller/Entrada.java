@@ -15,13 +15,13 @@ public class Entrada {
         this.model = new Modelo(new ArrayList<>(), date, new ArrayList<>());      
     }
 
-    public void addWord(String word){
+    public void addTxt(String word){
         this.model.setPalavraTexto(word);
     }
 
     public void adicionaCategoria(String word){
-        // método que recebe uma palavra do texto da entrada e 
-        // determina se ela se encaixa em uma das categorias
+        // método que recebe uma palavra do texto da entrada
+        // e determina se ela se encaixa em uma das categorias
         // padrão, cuja lista foi determinada na classe
         // Utilitaria 
 
@@ -35,6 +35,47 @@ public class Entrada {
             }
         }
 
+    }
+
+    // Método que retorna true se a entrada passa no filtro e retorna false caso contrário
+
+    public Boolean filtraTextoEntrada(String texto){
+        Boolean b = false;
+        // Vetor de strings que representa todas as palavras do texto do parâmetro
+        String[] textoFiltro = texto.split(" ");
+        for (String tf : textoFiltro) {  
+            for (String s : this.model.getTexto()) {
+                int ultimaPosicaoArray = this.model.getTexto().size() - 1;
+                if (tf.equals(s)){
+                    b = true;
+                }
+                else if (s.equals(this.model.getTexto().get(ultimaPosicaoArray))){
+                    return false;
+                }
+                
+            }
+        }
+        return b;
+    }
+
+    // Método que retorna true se a entrada passa no filtro e retorna false caso contrário
+
+    public Boolean filtraDataEntrada(String data){
+        Boolean b;
+        Date dataFiltro = Utilitaria.convertStringToDate(data);
+        b = (this.model.getDate() == dataFiltro);
+        return b;
+    }
+
+    // Método que retorna true se a entrada passa no filtro e retorna false caso contrário
+    // Determina se a entrada possui uma determinada categoria
+
+    public Boolean filtraCategoriaEntrada(String categoria){
+        for (String s : this.model.getCategorias()) {
+            if (s.equals(categoria))
+                return true;
+        }
+        return false;
     }
 
     public void exportarEntrada(){
