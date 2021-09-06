@@ -11,19 +11,17 @@ import model.Modelo;
 
 public class Entrada {      
 
-    private ArrayList<String> text; // texto fornecido para entrada do diário
-    private Date date; // data de registro da entrada no diário
-    private ArrayList<String> categorias; // lista de categorias associadas a entrada do diário
+    Modelo model;
 
     public Entrada(String _date){
-        this.text = new ArrayList<String>();
-        this.categorias = new ArrayList<String>();
-        this.date = Utilitaria.CONVERT_STRING_TO_DATE(_date);        
+        Date date = Utilitaria.CONVERT_STRING_TO_DATE(_date);  
+        this.model = new Modelo(new ArrayList<String>(), date, new ArrayList<String>());      
     }
 
     public void add_word(String word){
-        this.text.add(word);
-
+        ArrayList<String> aux = this.model.getTexto();
+        aux.add(word);
+        this.model.setTexto(aux);
     }
 
     public void adiciona_categoria(String word){
@@ -37,30 +35,31 @@ public class Entrada {
 
         for (String s : array){
             if (word.equalsIgnoreCase(s)){
-                this.categorias.add(word);
+                ArrayList<String> aux = this.model.getCategorias();
+                aux.add(word);
+                this.model.setCategorias(aux);
             }
         }
 
     }
 
     public void exportarEntrada(){
-        Modelo novaEntrada = new Modelo(this.text, this.date, this.categorias);
-        Exportacao.getInstance().exportaObjeto(novaEntrada);
+        Exportacao.getInstance().exportaObjeto(this.model);
     }
 
 
     public String toString() {
         String str = "";
-        str += this.date;
+        str += this.model.getDate();
         str += "\n";
         
-        for (String s : this.text){
+        for (String s : this.model.getTexto()){
             str += s;
             str += " ";
         }
 
         str += "\n";
-        for (String s : categorias) {
+        for (String s : this.model.getCategorias()) {
             str += s;
             str += " ";
         } 
