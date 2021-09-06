@@ -74,10 +74,9 @@ public class MenuPrincipal {
 
         String txt;
         txt = input.nextLine();
-        newEntrada.add_word(txt);
-        newEntrada.adiciona_categoria(txt);
+        newEntrada.addWord(txt);
+        newEntrada.adicionaCategoria(txt);
 
-        System.out.println("debug");
         this.entradas.add(newEntrada);
     }
 

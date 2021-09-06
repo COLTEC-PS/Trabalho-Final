@@ -17,17 +17,22 @@ import model.ProtocolFactory;
 
 public class Persistencia {
 
-    private Gson gson;
+    private static Persistencia instance;
     
-    Persistencia(){
-        this.gson = new Gson();
+    private Persistencia(){}
+
+    public static Persistencia getInstance() {
+        if (instance == null) // 1a vez que chama-se getInstance
+          instance = new Persistencia();
+        return instance;
     }
 
     // Método que lê os dados do banco de dados e coloca em uma lista de objetos do tipo 'Modelo'
 
-    public ArrayList<Modelo> leDados(){
+    public void leDados(ArrayList<Modelo> list){
 
-        ArrayList<Modelo> list = new ArrayList<>();
+        ArrayList<Modelo> auxList = new ArrayList<>();
+        Gson gson = new Gson();
 
         try {
 	        // cria um reader e lê o arquivo com os dados 
@@ -35,7 +40,7 @@ public class Persistencia {
 	        Reader reader = Files.newBufferedReader(Paths.get("src/banco_de_dados/log.json"));
 
 	        Type listType = new TypeToken<ArrayList<Modelo>>(){}.getType();
-	        list = gson.fromJson(reader, listType);
+	        auxList = gson.fromJson(reader, listType);
 
 	        // close reader
 	        reader.close();
@@ -43,10 +48,14 @@ public class Persistencia {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return list;
+        for (int i = 0; i < auxList.size(); i++) {
+            list.add(i, auxList.get(i));
+        }
     }
 
     public void armazenaDados(ArrayList<Modelo> list){
+        Gson gson = new Gson();
+
         try{
             // Abrindo o arquivo com os dados no modo de escrita 
             BufferedWriter writer = new BufferedWriter(new FileWriter("src/banco_de_dados/log.json"));

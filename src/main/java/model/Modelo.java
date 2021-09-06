@@ -14,20 +14,18 @@ public class Modelo {
     private ArrayList<String> categorias; // lista de categorias associadas a entrada do diário
 
 
-    public Modelo(ArrayList<String> _texto, Date _data, ArrayList<String> _categorias){
-        this.categorias = _categorias;
-        this.data = _data;
-        this.texto = _texto;
+    public Modelo(ArrayList<String> texto, Date data, ArrayList<String> categorias){
+        this.categorias = categorias;
+        this.data = data;
+        this.texto = texto;
     }
 
     public ArrayList<String> getTexto(){
         return this.texto;
     }
 
-    public void setTexto(ArrayList<String> texto){
-        // apaga o array atual para substituí-lo
-        this.texto.clear();
-        this.texto = texto;
+    public void setPalavraTexto(String palavra){
+        this.texto.add(palavra);
     }
 
     public Date getDate(){
@@ -47,4 +45,21 @@ public class Modelo {
         this.categorias = categorias;
     }
 
+    public String toString() {
+        String str = "";
+        str += this.data;
+        str += "\n";
+        
+        for (String s : this.texto){
+            str += s;
+            str += " ";
+        }
+        str += "\n";
+        for (String s : this.categorias) {
+            str += s;
+            str += " ";
+        } 
+        str += "\n";
+        return str;
+    }
 }
