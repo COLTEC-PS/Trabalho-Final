@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.*;
 import model.*;
 
 public class FiltragemCategoria extends FiltragemDecorator {
@@ -13,24 +14,30 @@ public class FiltragemCategoria extends FiltragemDecorator {
     public FiltragemCategoria(){
         super();
     }
+
     
-    public void filtraEntradas(String categoria){
+    public void filtraEntradasPorCategoria(ArrayList<Modelo> listaDados, String categoria){
         // Armazenou os dados do banco de dados dentro do array 'listaDados' que é atributo de 'FiltragemDecorator'
-        super.filtraEntradas(categoria);
-        for (Modelo m : this.listaDados) {
-            
-        }
+        super.filtraEntradas(listaDados, categoria);
+        ArrayList<Modelo> auxArray = new ArrayList<>();
+
+        // Chamando o método que filtra por categoria para cada elemento da lista de dados
         
-        return;
+        for (Modelo m : listaDados) {
+            if (filtraCategoria(m, categoria)){
+                auxArray.add(m);
+            }
+        }
+        atualizaListaDados(auxArray, listaDados);
     }
+
+    // Método que filtra os dados por categoria
 
     public Boolean filtraCategoria(Modelo m, String categoria){
-    for (String s : m.getCategorias()) {
-        if (s.equals(categoria))
-            return true;
+        for (String s : m.getCategorias()) {
+            if (s.equals(categoria))
+                return true;
+        }
+        return false;
     }
-    return false;
-}
-
-
 }

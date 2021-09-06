@@ -105,114 +105,127 @@ public class MenuPrincipal {
 
         int i = input.nextInt();
 
-        switch (i){
+        System.out.println("/t/tResultados do(s) filtro(s): ");
 
+        ArrayList<Modelo> listaDados = new ArrayList<>();
+
+        switch (i){
             case 1:
                 Filtragem f1 = new FiltragemTexto();
-                filtrarTexto(f1, input);
+                filtrarTexto(listaDados, f1, input);
                 break;
             case 2:
                 Filtragem f2 = new FiltragemData();
-                filtrarData(f2, input);
+                filtrarData(listaDados, f2, input);
                 break;
             case 3:
                 FiltragemCategoria f3 = new FiltragemCategoria();
-                filtrarCategoria(f3, input);
+                filtrarCategoria(listaDados, f3, input);
                 break;
             case 12:
                 Filtragem f12 = new FiltragemTexto(new FiltragemData());
+                filtrarTexto(listaDados, f12, input);
+                filtrarData(listaDados, f12, input);
                 break;
             case 21:
                 Filtragem f21 = new FiltragemData(new FiltragemTexto());
+                filtrarData(listaDados, f21, input);
+                filtrarTexto(listaDados, f21, input);
                 break;
             case 13:
                 Filtragem f13 = new FiltragemTexto(new FiltragemCategoria());
+                filtrarTexto(listaDados, f13, input);
+                filtrarCategoria(listaDados, f13, input);
                 break;
             case 31:
                 Filtragem f31 = new FiltragemCategoria(new FiltragemTexto());
+                filtrarTexto(listaDados, f31, input);
+                filtrarCategoria(listaDados, f31, input);
                 break;
             case 23:
                 Filtragem f23 = new FiltragemData(new FiltragemCategoria());
+                filtrarCategoria(listaDados, f23, input);
+                filtrarData(listaDados, f23, input);
                 break;
             case 32:
                 Filtragem f32 = new FiltragemCategoria(new FiltragemData());
+                filtrarCategoria(listaDados, f32, input);
+                filtrarData(listaDados, f32, input);
                 break;
             case 123:
                 Filtragem f123 = new FiltragemTexto(new FiltragemData(new FiltragemCategoria()));
+                filtrarCategoria(listaDados, f123, input);
+                filtrarData(listaDados, f123, input);
+                filtrarTexto(listaDados, f123, input);
                 break;
             case 132:
                 Filtragem f132 = new FiltragemTexto(new FiltragemData(new FiltragemCategoria()));
+                filtrarCategoria(listaDados, f132, input);
+                filtrarData(listaDados, f132, input);
+                filtrarTexto(listaDados, f132, input);
                 break;
             case 321:
                 Filtragem f321 = new FiltragemTexto(new FiltragemData(new FiltragemCategoria()));
+                filtrarCategoria(listaDados, f321, input);
+                filtrarData(listaDados, f321, input);
+                filtrarTexto(listaDados, f321, input);
                 break;
             case 312:
                 Filtragem f312 = new FiltragemTexto(new FiltragemData(new FiltragemCategoria()));
+                filtrarCategoria(listaDados, f312, input);
+                filtrarData(listaDados, f312, input);
+                filtrarTexto(listaDados, f312, input);
                 break;
             case 213:
                 Filtragem f213 = new FiltragemTexto(new FiltragemData(new FiltragemCategoria()));
+                filtrarCategoria(listaDados, f213, input);
+                filtrarData(listaDados, f213, input);
+                filtrarTexto(listaDados, f213, input);
                 break;
             case 231:
                 Filtragem f231 = new FiltragemTexto(new FiltragemData(new FiltragemCategoria()));
+                filtrarCategoria(listaDados, f231, input);
+                filtrarData(listaDados, f231, input);
+                filtrarTexto(listaDados, f231, input);
                 break;
             default:
                 System.out.println("Opção invĺida, tente novamente.");
                 break;
         }
+        imprimeArrayEntradas(listaDados);
     }
 
-    public void atualizaArrayEntradas(ArrayList <Entrada> auxArray){
-        this.entradas.clear();
-        for (Entrada e : auxArray) {
-            this.entradas.add(e);
-        }
-
-    }
-
-    public void filtrarTexto(Filtragem f, Scanner input){
+    public void filtrarTexto(ArrayList<Modelo> listaDados, Filtragem f, Scanner input){
         System.out.println("Escreva o texto que será o filtro para as entradas: ");
 
         // Lê string referente ao texto que será usado como filtro
         String subtexto = input.nextLine();
 
-        // Atualiza o atributo entradas e deixa o array com apenas as entradas que passaram no filtro
-
-        ArrayList<Entrada> auxArray = new ArrayList<>();
-        for (Entrada e : this.entradas) {
-            if (e.filtraTextoEntrada(subtexto)){
-                auxArray.add(e);
-            }
-        }
-        atualizaArrayEntradas(auxArray);    
+        Entrada.instanciaAuxiliar.filtraEntradasPorTextoController(listaDados, f, subtexto);
     }
 
-    public void filtrarData(Filtragem f, Scanner input){
+    public void filtrarData(ArrayList<Modelo> listaDados, Filtragem f, Scanner input){
         System.out.println("Escreva a data que será usada como filtro: ");
 
         // Lê a data
         String data = input.nextLine();
 
-        ArrayList<Entrada> auxArray = new ArrayList<>();
-        for (Entrada e : this.entradas) {
-            if (e.filtraDataEntrada(data)){
-                auxArray.add(e);
-            }
-        }
-        atualizaArrayEntradas(auxArray);    
+        Entrada.instanciaAuxiliar.filtraEntradasPorDataController(listaDados, f, data);
     }
 
-    public void filtrarCategoria(Filtragem f, Scanner input){
+    public void filtrarCategoria(ArrayList<Modelo> listaDados, Filtragem f, Scanner input){
         System.out.println("Escreva a categoria que será usada como filtro: ");
         
         // Lê a categoria
         String categoria = input.nextLine();
 
-        ArrayList<Entrada> auxArray = new ArrayList<>();
-        for (Entrada e : this.entradas) {
-            if (e.filtraCategoriaEntrada(categoria)){
-                auxArray.add(e);
-            }
+        Entrada.instanciaAuxiliar.filtraEntradasPorCategoriaController(listaDados, f, categoria);
+    }
+
+
+    public void imprimeArrayEntradas(ArrayList<Modelo> listaDados){
+        for (Modelo m : listaDados) {
+            System.out.println(m);
         }
-        atualizaArrayEntradas(auxArray);    
     }
 }

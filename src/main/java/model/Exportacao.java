@@ -22,25 +22,6 @@ public class Exportacao {
 		// Adicionando à lista o novo objeto que foi recebido como parâmetro
 		list.add(obj);
 		
-
-		/*for (Modelo m : list) {
-				
-				String str = "";
-				str += obj.getDate();
-				str += "\n";
-
-				for (String s : obj.getTexto()){
-				    str += s;
-				    str += " ";
-				}
-				str += "\n";
-				for (String s : obj.getCategorias()) {
-				    str += s;
-				    str += " ";
-				} 
-				str += "\n"; 
-		} */
-
 		// Chamando método que escreve objetos de uma lista no banco de dados
 
 		Persistencia.getInstance().armazenaDados(list);

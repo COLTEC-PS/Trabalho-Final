@@ -3,10 +3,13 @@ package controller;
 import java.util.ArrayList;
 import java.util.Date;
 import model.Exportacao;
+import model.Filtragem;
 import model.Modelo;
 
 
-public class Entrada {      
+public class Entrada {     
+    
+    public static Entrada instanciaAuxiliar;
 
     Modelo model;
 
@@ -37,46 +40,18 @@ public class Entrada {
 
     }
 
-    // Método que retorna true se a entrada passa no filtro e retorna false caso contrário
-
-    public Boolean filtraTextoEntrada(String texto){
-        Boolean b = false;
-        // Vetor de strings que representa todas as palavras do texto do parâmetro
-        String[] textoFiltro = texto.split(" ");
-        for (String tf : textoFiltro) {  
-            for (String s : this.model.getTexto()) {
-                int ultimaPosicaoArray = this.model.getTexto().size() - 1;
-                if (tf.equals(s)){
-                    b = true;
-                }
-                else if (s.equals(this.model.getTexto().get(ultimaPosicaoArray))){
-                    return false;
-                }
-                
-            }
-        }
-        return b;
+    public void filtraEntradasPorTextoController(ArrayList<Modelo> listaDados, Filtragem f, String texto){
+        f.filtraEntradasPorTexto(listaDados, texto);
     }
 
-    // Método que retorna true se a entrada passa no filtro e retorna false caso contrário
-
-    public Boolean filtraDataEntrada(String data){
-        Boolean b;
-        Date dataFiltro = Utilitaria.convertStringToDate(data);
-        b = (this.model.getDate() == dataFiltro);
-        return b;
+    public void filtraEntradasPorDataController(ArrayList<Modelo> listaDados, Filtragem f, String data){
+        f.filtraEntradasPorData(listaDados, data);
     }
 
-    // Método que retorna true se a entrada passa no filtro e retorna false caso contrário
-    // Determina se a entrada possui uma determinada categoria
-
-    public Boolean filtraCategoriaEntrada(String categoria){
-        for (String s : this.model.getCategorias()) {
-            if (s.equals(categoria))
-                return true;
-        }
-        return false;
+    public void filtraEntradasPorCategoriaController(ArrayList<Modelo> listaDados, Filtragem f, String categoria){
+        f.filtraEntradasPorCategoria(listaDados, categoria);
     }
+
 
     public void exportarEntrada(){
         Exportacao ex = new Exportacao();
