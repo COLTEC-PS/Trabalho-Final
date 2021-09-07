@@ -1,4 +1,5 @@
 [
 {"texto":["sou","estudante","de","programaçao","do","coltec","ufmg"],"data":"Oct 20, 2022, 12:00:00 AM","categorias":["estudante","Coltec","UFMG"]},
-{"texto":["orientaçao","a","objetos","e","software","no","linkedin"],"data":"Nov 8, 1999, 12:00:00 AM","categorias":["software","Linkedin"]}
+{"texto":["orientaçao","a","objetos","e","software","no","linkedin"],"data":"Nov 8, 1999, 12:00:00 AM","categorias":["software","Linkedin"]},
+{"texto":["Sou","estudante","de","java","no","coltec","ufmg"],"data":"Sep 6, 2021, 12:00:00 AM","categorias":["estudante","Java","Coltec","UFMG"]}
 ]
