@@ -1,17 +1,27 @@
 model/ProtocolFactory.java
  model.ProtocolFactory
-controller/Utilitaria.java
- controller.Utilitaria
-view/MenuPrincipal.java
- view.MenuPrincipal
-Main.java
- Main
+model/FiltragemTexto.java
+ model.FiltragemTexto
+model/Filtragem.java
+ model.Filtragem
+model/FiltragemCategoria.java
+ model.FiltragemCategoria
 model/Modelo.java
  model.Modelo
+model/FiltragemData.java
+ model.FiltragemData
+controller/Entrada.java
+ controller.Entrada
+model/Exportacao.java
+ model.Exportacao
+model/FiltragemDecorator.java
+ model.FiltragemDecorator
 model/Persistencia.java
  model.Persistencia
  model.Persistencia$1
-model/Exportacao.java
- model.Exportacao
-controller/Entrada.java
- controller.Entrada
+controller/Utilitaria.java
+ controller.Utilitaria
+Main.java
+ Main
+view/MenuPrincipal.java
+ view.MenuPrincipal

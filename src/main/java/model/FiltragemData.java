@@ -37,7 +37,7 @@ public class FiltragemData extends FiltragemDecorator {
     public Boolean filtraData(Modelo m, String data){
         Boolean b;
         Date dataFiltro = Utilitaria.convertStringToDate(data);
-        b = (m.getDate() == dataFiltro);
+        b = (m.getDate().equals(dataFiltro));
         return b;
     }
 }

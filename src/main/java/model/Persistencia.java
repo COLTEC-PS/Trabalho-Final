@@ -50,8 +50,12 @@ public class Persistencia {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < auxList.size(); i++) {
-            list.add(i, auxList.get(i));
+        if (auxList != null){
+            for (int i = 0; i < auxList.size(); i++) {
+                if (auxList.get(i) != null){
+                    list.add(i, auxList.get(i));
+                }
+            }
         }
     }
 

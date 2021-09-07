@@ -35,8 +35,9 @@ public class FiltragemCategoria extends FiltragemDecorator {
 
     public Boolean filtraCategoria(Modelo m, String categoria){
         for (String s : m.getCategorias()) {
-            if (s.equals(categoria))
+            if (s.equalsIgnoreCase(categoria)){
                 return true;
+            }
         }
         return false;
     }

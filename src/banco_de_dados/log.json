@@ -1,11 +1,4 @@
 [
-{"texto":["e ai galera de cowboy"],"data":"Apr 4, 2018, 12:00:00 AM","categorias":[]},
-{"texto":["oi ola um dois tres"],"data":"Sep 9, 2000, 12:00:00 AM","categorias":[]},
-{"texto":["lalalalalala"],"data":"Dec 10, 2020, 12:00:00 AM","categorias":[]},
-{"texto":["e ai galera de cowboy"],"data":"Apr 4, 2018, 12:00:00 AM","categorias":[]},
-{"texto":["sou estudante do Coltec UFMG"],"data":"Oct 10, 2020, 12:00:00 AM","categorias":[]},
-{"texto":["sou estudante do Coltec UFMG"],"data":"Oct 10, 2020, 12:00:00 AM","categorias":[]},
-{"texto":["sou estudante do Coltec UFMG"],"data":"Oct 10, 2020, 12:00:00 AM","categorias":[]},
-{"texto":["sou estudante do Coltec UFMG"],"data":"Oct 10, 2020, 12:00:00 AM","categorias":[]},
-{"texto":["sou estudante do Coltec UFMG"],"data":"Oct 10, 2020, 12:00:00 AM","categorias":[]}
+{"texto":["sou","estudante","de","programaçao","do","coltec","ufmg"],"data":"Oct 20, 2022, 12:00:00 AM","categorias":["estudante","Coltec","UFMG"]},
+{"texto":["orientaçao","a","objetos","e","software","no","linkedin"],"data":"Nov 8, 1999, 12:00:00 AM","categorias":["software","Linkedin"]}
 ]

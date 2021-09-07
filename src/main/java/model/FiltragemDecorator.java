@@ -16,8 +16,9 @@ public class FiltragemDecorator implements Filtragem {
     public FiltragemDecorator(){}
 
     public void filtraEntradas(ArrayList<Modelo> listaDados, Object filtro){
-        this.filtragem.filtraEntradas(listaDados, filtro);       
+      
         Persistencia.getInstance().leDados(listaDados);
+        
     }
 
     public void filtraEntradasPorTexto(ArrayList<Modelo> listaDados, String texto){

@@ -41,11 +41,11 @@ public class Modelo {
         return this.categorias;
     }
 
-    public void setCategorias(ArrayList<String> categorias){
-        this.categorias = categorias;
+    public void addCategoria(String newC){
+        this.categorias.add(newC);
     }
 
-    public String toString() {
+    public void imprimeModelo() {        
         String str = "";
         str += this.data;
         str += "\n";
@@ -60,6 +60,6 @@ public class Modelo {
             str += " ";
         } 
         str += "\n";
-        return str;
+        System.out.println(str);
     }
 }

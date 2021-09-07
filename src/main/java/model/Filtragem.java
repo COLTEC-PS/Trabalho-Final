@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import model.Modelo;
+import model.*;
 
 public interface Filtragem {
 

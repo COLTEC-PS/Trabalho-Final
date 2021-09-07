@@ -21,6 +21,7 @@ public class FiltragemTexto extends FiltragemDecorator {
 
         for (Modelo m : listaDados) {
             if (filtraTexto(m, texto)){
+
                 auxArray.add(m);
             }
         }
@@ -34,11 +35,14 @@ public class FiltragemTexto extends FiltragemDecorator {
         
         // Vetor de strings que representa todas as palavras do texto do parâmetro
         String[] textoFiltro = texto.split(" ");
+        String[] textoParametro;
+
         for (String tf : textoFiltro) {  
             for (String s : m.getTexto()) {
                 int ultimaPosicaoArray = m.getTexto().size() - 1;
                 if (tf.equals(s)){
                     b = true;
+                    break;
                 }
                 else if (s.equals(m.getTexto().get(ultimaPosicaoArray))){
                     return false;

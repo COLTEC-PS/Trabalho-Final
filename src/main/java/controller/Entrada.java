@@ -1,6 +1,7 @@
 package controller; 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import model.Exportacao;
 import model.Filtragem;
@@ -9,14 +10,14 @@ import model.Modelo;
 
 public class Entrada {     
     
-    public static Entrada instanciaAuxiliar;
-
     Modelo model;
 
     public Entrada(String dateParametro){
         Date date = Utilitaria.convertStringToDate(dateParametro);  
         this.model = new Modelo(new ArrayList<>(), date, new ArrayList<>());      
     }
+
+    public Entrada(){}
 
     public void addTxt(String word){
         this.model.setPalavraTexto(word);
@@ -28,13 +29,10 @@ public class Entrada {
         // padrão, cuja lista foi determinada na classe
         // Utilitaria 
 
-        ArrayList <String> array = Utilitaria.getCategoriasPadrao();
-
+        ArrayList<String> array = Utilitaria.getCategoriasPadrao();
         for (String s : array){
             if (word.equalsIgnoreCase(s)){
-                ArrayList<String> aux = this.model.getCategorias();
-                aux.add(word);
-                this.model.setCategorias(aux);
+                this.model.addCategoria(s);
             }
         }
 

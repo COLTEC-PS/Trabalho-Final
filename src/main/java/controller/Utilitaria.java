@@ -17,7 +17,7 @@ public class Utilitaria {
     private Utilitaria(){}
 
     public static ArrayList<String> getCategoriasPadrao(){
-
+        categoriasPadrao.clear();
         categoriasPadrao.add("Java"); 
         categoriasPadrao.add("arquitetura"); 
         categoriasPadrao.add("software"); 
@@ -27,19 +27,17 @@ public class Utilitaria {
         categoriasPadrao.add("estudante");
         categoriasPadrao.add("professor");
         categoriasPadrao.add("pesquisa"); 
-        categoriasPadrao.add("curso técnico"); 
+        categoriasPadrao.add("curso"); 
+        categoriasPadrao.add("técnico"); 
         categoriasPadrao.add("graduação"); 
         categoriasPadrao.add("mestrado");
         categoriasPadrao.add("doutorado"); 
         categoriasPadrao.add("UFMG"); 
         categoriasPadrao.add("Coltec");
-        categoriasPadrao.add("orientação a objeto");
         categoriasPadrao.add("algoritmos");
-        categoriasPadrao.add("estruturas de dados");
-        categoriasPadrao.add("banco de dados"); 
-        categoriasPadrao.add("dados");
-        categoriasPadrao.add("paradigmas de programação"); 
-        categoriasPadrao.add("mercado"); 
+        categoriasPadrao.add("dados"); 
+        categoriasPadrao.add("paradigmas"); 
+        categoriasPadrao.add("mercado");
         categoriasPadrao.add("Linkedin");
 
         return categoriasPadrao;
