@@ -2,16 +2,28 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'com.example'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'junit:junit:4.13.1'
+
+    // Dependência para JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    // Dependência para Gson
+    implementation 'com.google.code.gson:gson:2.8.8'
+
+    // Dependência para OpenCSV
+    implementation 'com.opencsv:opencsv:5.5.2'
 }
 
 test {
