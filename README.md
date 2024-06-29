@@ -109,17 +109,17 @@ Além disso, cada uma das opções deverá ser executada em um procedimento (mé
 O trabalho deverá ser **entregue até o dia 29/06/2024**, no formato de pull request a este repositório.
 Você deverá entregar no pull request o projeto contendo o código desenvolvido do programa. Ainda, forneça no próprio pull-request checklist preenchido, representando o cumprimento das tarefas:
 
-- [ ] Arquitetura geral
-- [ ] Camada de dados
-  - [ ] Classe de modelo
-  - [ ] Classe de persistência
-  - [ ] Classe de exportação
-  - [ ] Teste dos filtros
-- [ ] Camada de Negócios
-  - [ ] Classe utilitária
-  - [ ] Método para inserção de entrada
-  - [ ] Método para filtragem de entradas
-  - [ ] Método para exportação das entradas
-- [ ] Camada de apresentação
-  - [ ] Método para exibição dos itens de menu
-  - [ ] Métodos contendo a chamada de cada uma das funcionalidades
+- [X] Arquitetura geral
+- [X] Camada de dados
+  - [X] Classe de modelo
+  - [X] Classe de persistência
+  - [X] Classe de exportação
+  - [X] Teste dos filtros
+- [X] Camada de Negócios
+  - [X] Classe utilitária
+  - [X] Método para inserção de entrada
+  - [X] Método para filtragem de entradas
+  - [X] Método para exportação das entradas
+- [X] Camada de apresentação
+  - [X] Método para exibição dos itens de menu
+  - [X] Métodos contendo a chamada de cada uma das funcionalidades
