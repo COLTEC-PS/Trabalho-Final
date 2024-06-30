@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FilterTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-06-30T02:29:09" hostname="DESKTOP-ET262PM" time="0.039">
+  <properties/>
+  <testcase name="testCategoryDecorator()" classname="FilterTest" time="0.027"/>
+  <testcase name="testSubstringFilter()" classname="FilterTest" time="0.001"/>
+  <testcase name="testDateFilter()" classname="FilterTest" time="0.002"/>
+  <testcase name="testDateDecorator()" classname="FilterTest" time="0.002"/>
+  <testcase name="testCategoryFilter()" classname="FilterTest" time="0.001"/>
+  <testcase name="testSubstringDecorator()" classname="FilterTest" time="0.001"/>
+  <testcase name="testEveryFilter()" classname="FilterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

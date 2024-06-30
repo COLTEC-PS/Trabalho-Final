@@ -89,7 +89,7 @@ Implemente uma classe de testes unitários para testar os métodos presentes nes
 
 ### Camada de Apresentação
 
-A camada de apresentação deverá conter as classes responsáveis por gerenciar tudo relacionado a interface com usuário, incluindo a classe `Main` do programa.
+A camada de apresentação deverá conter as classes responsáveis por gerenciar tudo relacionado a interface com usuário, incluindo a classe `View.Main` do programa.
 Como essa interface será voltada para linha de comando, você deverá implementar os métodos para exibição das opções de menu para cada uma das funcionalidades; veja exemplo abaixo:
 
 ```
